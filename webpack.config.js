@@ -145,6 +145,8 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       filename: '[name].[hash].js',
       chunkFilename: '[name].[hash].js'
     },
+	
+	devtool: 'source-map',
 
     module: {
       rules: [
@@ -170,7 +172,9 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       new webpack.NoEmitOnErrorsPlugin(),
       // new webpack.optimize.DedupePlugin(),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+		sourceMap: true
+	  }),
       new CopyWebpackPlugin([{
         from: __dirname + '/src/public'
       }]),
