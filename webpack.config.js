@@ -30,8 +30,8 @@ let common = {
 
   entry: {
     app: path.join(__dirname, 'src/app/scripts/app.js'),
-    rgraph: glob.sync(path.join(__dirname, 'other_components/rgraph/libraries/*.js'))
-    // parser: path.join(__dirname, 'parser/bundle-parser.js')
+    rgraph: glob.sync(path.join(__dirname, 'other_components/rgraph/libraries/*.js')),
+    parser: path.join(__dirname, 'parser/bundle-parser.js')
   },
   module: {
     //preLoaders: [],
