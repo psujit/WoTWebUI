@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+#deployables only
+.editorconfig
+.eslintrc
+karma.conf.js
+other_components/
+parser/
+postcss.config.js
+semantic/
+src/
+test/
+
+# Tools
+tools/
+
+# Reporters
+reports/
+
+# IDE files
+.idea
+*.iml
+out
+gen
+.vscode
+
+# logs folder
+dist-docs/
+docs/
