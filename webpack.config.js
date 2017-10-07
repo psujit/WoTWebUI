@@ -78,7 +78,7 @@ let common = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commons',
-      chunks: ['rgraph', 'app']
+      chunks: ['parser', 'rgraph', 'app']
     }),
     new webpack.ContextReplacementPlugin(/typedjson-npm/, 'typed-json.js'),
     new HtmlWebpackPlugin({
@@ -167,7 +167,7 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
     },
 
     plugins: [
-      new webpack.NoErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       // new webpack.optimize.DedupePlugin(),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.optimize.UglifyJsPlugin(),
