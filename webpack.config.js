@@ -168,9 +168,9 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
     },
 
     plugins: [
-      new webpack.NoEmitOnErrorsPlugin(),
+      //new webpack.NoEmitOnErrorsPlugin(),
       // new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.ModuleConcatenationPlugin(),
+      //new webpack.optimize.ModuleConcatenationPlugin(),
       //new webpack.optimize.UglifyJsPlugin({ minimize: true,
       //sourceMap: true }),
       new CopyWebpackPlugin([{
@@ -178,15 +178,15 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       }]),
       new ExtractTextPlugin('[name].[hash].css'),
 
-      new DocsGeneratorPlugin({
-        enable       : docEnable,
-        staticContent: './docs',
-        sources      : {
-          include : 'src/app/**/**/*.js',
-          basePath: 'src/app'
-        },
-        output: 'dist-docs'
-      })
+      //new DocsGeneratorPlugin({
+      //  enable       : docEnable,
+      //  staticContent: './docs',
+      //  sources      : {
+      //    include : 'src/app/**/**/*.js',
+      //    basePath: 'src/app'
+      //  },
+      //  output: 'dist-docs'
+     // })
     ],
 	
 	devtool: 'cheap-module-eval-source-map',
