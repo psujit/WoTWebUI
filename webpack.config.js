@@ -146,7 +146,6 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       chunkFilename: '[name].[hash].js'
     },
 	
-	devtool: 'eval',
 
     module: {
       rules: [
@@ -172,9 +171,8 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       new webpack.NoEmitOnErrorsPlugin(),
       // new webpack.optimize.DedupePlugin(),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-		sourceMap: true
-	  }),
+      new webpack.optimize.UglifyJsPlugin({ minimize: true,
+      sourceMap: true }),
       new CopyWebpackPlugin([{
         from: __dirname + '/src/public'
       }]),
@@ -190,6 +188,8 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
         output: 'dist-docs'
       })
     ],
+	
+	devtool: 'source-map',
   });
 }
 
