@@ -151,20 +151,11 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       rules: [
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {importLoaders: 1}
-              },
-              {
-                loader: 'postcss-loader'
-              }
-            ]
-          })
-        }
-      ]
+          use: [{loader: 'style-loader'}, {
+            loader: 'css-loader',
+            options: {importLoaders: 1}
+          }, {loader: 'postcss-loader'}]
+        }]
     },
 
     plugins: [
@@ -173,10 +164,10 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       //new webpack.optimize.ModuleConcatenationPlugin(),
       //new webpack.optimize.UglifyJsPlugin({ minimize: true,
       //sourceMap: true }),
-      new CopyWebpackPlugin([{
-        from: __dirname + '/src/public'
-      }]),
-      new ExtractTextPlugin('[name].[hash].css'),
+      //new CopyWebpackPlugin([{
+     //   from: __dirname + '/src/public'
+    //  }]),
+     // new ExtractTextPlugin('[name].[hash].css'),
 
       //new DocsGeneratorPlugin({
       //  enable       : docEnable,
