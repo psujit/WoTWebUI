@@ -189,7 +189,7 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       })
     ],
 	
-	devtool: 'eval-source-map',
+	devtool: '#inline-source-map',
   });
 }
 
