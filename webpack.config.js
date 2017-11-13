@@ -189,7 +189,7 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       })
     ],
 	
-	devtool: 'source-map',
+	devtool: 'cheap-module-source-map',
   });
 }
 
