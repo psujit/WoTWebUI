@@ -146,7 +146,7 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       chunkFilename: '[name].[hash].js'
     },
 	
-	devtool: '#source-map',
+	devtool: 'eval',
 
     module: {
       rules: [
