@@ -151,36 +151,45 @@ if (TARGET !== undefined && TARGET.startsWith('build')) {
       rules: [
         {
           test: /\.css$/,
-          use: [{loader: 'style-loader'}, {
-            loader: 'css-loader',
-            options: {importLoaders: 1}
-          }, {loader: 'postcss-loader'}]
-        }]
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {importLoaders: 1}
+              },
+              {
+                loader: 'postcss-loader'
+              }
+            ]
+          })
+        }
+      ]
     },
 
     plugins: [
-      //new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       // new webpack.optimize.DedupePlugin(),
-      //new webpack.optimize.ModuleConcatenationPlugin(),
-      //new webpack.optimize.UglifyJsPlugin({ minimize: true,
-      //sourceMap: true }),
-      //new CopyWebpackPlugin([{
-     //   from: __dirname + '/src/public'
-    //  }]),
-     // new ExtractTextPlugin('[name].[hash].css'),
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new webpack.optimize.UglifyJsPlugin({ minimize: true,
+      sourceMap: true }),
+      new CopyWebpackPlugin([{
+        from: __dirname + '/src/public'
+      }]),
+      new ExtractTextPlugin('[name].[hash].css'),
 
-      //new DocsGeneratorPlugin({
-      //  enable       : docEnable,
-      //  staticContent: './docs',
-      //  sources      : {
-      //    include : 'src/app/**/**/*.js',
-      //    basePath: 'src/app'
-      //  },
-      //  output: 'dist-docs'
-     // })
+      new DocsGeneratorPlugin({
+        enable       : docEnable,
+        staticContent: './docs',
+        sources      : {
+          include : 'src/app/**/**/*.js',
+          basePath: 'src/app'
+        },
+        output: 'dist-docs'
+      })
     ],
 	
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'source-map',
   });
 }
 
